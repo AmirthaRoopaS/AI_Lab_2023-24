@@ -15,20 +15,21 @@ Write a mini-max search algorithm to find the optimal value of MAX Player from t
 9. Stop the program. 
 
 ### Program:
-
-
-
-
-
-
-
-
-
-
+import math
+def minimax (curdepth, nodeindex, maxturn, scores, targetdepth):
+    if(curdepth == targetdepth):
+        return scores[nodeindex]
+    if(maxturn):
+        return max(minimax(curdepth + 1,nodeindex*2,False,scores,targetdepth),minimax(curdepth + + 1,nodeindex*2 + 1,False, scores, targetdepth))
+    else:
+        return min(minimax(curdepth + 1, nodeindex * 2, True, scores, targetdepth),minimax(curdepth + 1, nodeindex * 2 + 1, True, scores, targetdepth))
+scores = [3, 5, 2, 9, 12, 5, 23, 20]
+treedepth = math.log(len(scores), 2)
+print("The optimal value is : ",end = " ")
+print(minimax(0, 0, True, scores, treedepth))
 
 ### Output:
-
-
+![image](https://github.com/AmirthaRoopaS/AI_Lab_2023-24/assets/143496311/cacdcf62-0e7e-478d-ad65-2b89465e1b5b)
 
 ### Result:
 Thus the optimum value of max player was found using minimax search.
